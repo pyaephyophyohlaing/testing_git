@@ -4,6 +4,11 @@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center   justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Item Edit form</h1>
+		<div class="text-right">
+              <a href="{{route('items.index')}}"  class="btn btn-success">
+                Go Back
+              </a>
+            </div>
 
 	</div>
 	<div class="row">
@@ -14,7 +19,7 @@
 					<div class="form-group row">
 						<label for="InputCodeno" 
 						class="col-sm-2 col-form-label">Code NO</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="codeno" value="{{$item->codeno}}"  readonly="readonly">
 							{{-- <span class="text-danger">{{$error->first('codeno')}} --}}
 							</span>
@@ -23,7 +28,7 @@
 
 					<div class="form-group row">
 						<label for="Inputname" class="col-sm-2 col-form-label">Name</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="name" 
 							value="{{$item->name}}">
 						</div>
@@ -31,7 +36,7 @@
 
 					<div class="form-group row">
 						<label for="Inputphoto" class="col-sm-2 col-form-label">Photo</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="file" class="form-control" name="photo">
 
 							<img src="{{asset($item->photo)}}"  class="img-fluid w-25">
@@ -42,14 +47,14 @@
 
 					<div class="form-group row">
 						<label for="Inputprice" class="col-sm-2 col-form-label">Price</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="number" class="form-control" name="price" value="{{$item->price}}">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="Inputdiscount" class="col-sm-2 col-form-label">Discount</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="number" class="form-control" name="discount" 
 							value="{{$item->discount}}">
 						</div>
@@ -58,7 +63,7 @@
 
 					<div class="form-group row">
 						<label for="Inputdescription" class="col-sm-2 col-form-label">Description</label>
-						<textarea class=" form-control col-sm-10" name="description" id="Inputdescription">{{$item->description}}</textarea>	
+						<textarea class=" form-control col-sm-5" name="description" id="Inputdescription">{{$item->description}}</textarea>	
 					</div>
 
 					<div class="form-group row">

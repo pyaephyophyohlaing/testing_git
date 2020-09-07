@@ -46,7 +46,7 @@
 		  		</form>
 
 		  		<div class=" mt-3 text-center ">
-		  			<a href="#" class="loginLink text-decoration-none">Need an account? Sign Up!</a>
+		  			<a href="{{route('register')}}" class="loginLink text-decoration-none">Need an account? Sign Up!</a>
 		  		</div>
 			</div>
 		</div>

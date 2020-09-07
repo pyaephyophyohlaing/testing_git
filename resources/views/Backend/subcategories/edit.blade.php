@@ -4,6 +4,11 @@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center   justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Subcategory Edit form</h1>
+		<div class="text-right">
+              <a href="{{route('subcategories.index')}}"  class="btn btn-success">
+                Go Back
+              </a>
+            </div>
 
 	</div>
 	<div class="row">

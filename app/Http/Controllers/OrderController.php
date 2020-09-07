@@ -74,7 +74,7 @@ public function function__construct($value='')
      */
     public function show(Order $order)
     {
-        //
+        return view('backend.order.detail',compact('order'));
     }
 
     /**

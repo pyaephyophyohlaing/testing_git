@@ -34,10 +34,15 @@
 							<td>{{$subcategory->category->name}}</td>
 							
 							<td>
-								<a href="" class="btn btn-primary">Detail</a>
-								<a href="{{route('subcategories.edit',$subcategory->id)}}" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" 
-								>Delete</a>
+								<a href="{{route('subcategories.show',$subcategory->id)}}" class="btn btn-primary">Detail</a><br><br>
+
+								<a href="{{route('subcategories.edit',$subcategory->id)}}" class="btn btn-info">Edit</a><br><br>
+         							<form action="{{route('subcategories.destroy',$subcategory->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')">
+         							<form action="{{route('subcategories.destroy',$subcategory->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')" class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-success" type="submit">Delete</button>                    
+                                    </form>
 							</td>
 						</tr>
 						@endforeach

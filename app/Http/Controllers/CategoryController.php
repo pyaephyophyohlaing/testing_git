@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Item;
+use App\Brand;
 use App\Category;
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -48,12 +50,12 @@ class CategoryController extends Controller
     
      $imageName=time().'.'.$request->photo->extension();
 
-        $request->photo->move(public_path('backend/brandimg'),$imageName);
+        $request->photo->move(public_path('backend/categoryimg'),$imageName);
 
-        $path ='backend/brandimg/'.$imageName;
+        $path ='backend/categoryimg/'.$imageName;
         $category=new Category;
         $category->name=$request->name;
-        $category->photo=$request->photo;
+        $category->photo=$path;
         $category->save();
         return redirect()->route('categories.index');
 
@@ -67,7 +69,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('backend.categories.detail',compact('category'));
     }
 
     /**
@@ -103,9 +105,9 @@ class CategoryController extends Controller
 
             $imageName=time().'.'.$request->photo->extension();
 
-                $request->photo->move(public_path('backend/brandimg'),$imageName);
+                $request->photo->move(public_path('backend/categoryimg'),$imageName);
 
-                $path ='backend/brandimg/'.$imageName;
+                $path ='backend/categoryimg/'.$imageName;
 
         }else{
             $path=$request->oldphoto;
@@ -125,6 +127,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('categories.index');
     }
 }

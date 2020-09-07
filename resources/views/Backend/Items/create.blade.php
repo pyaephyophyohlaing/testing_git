@@ -4,6 +4,11 @@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center   justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Item Create form</h1>
+		<div class="text-right">
+              <a href="{{route('items.index')}}"  class="btn btn-success">
+                Go Back
+              </a>
+            </div>
 
 	</div>
 	<div class="row">
@@ -14,7 +19,7 @@
 						$errors->has('codeno')?'has-error':''}}">
 						<label for="InputCodeno" 
 						class="col-sm-2 col-form-label">Code NO</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="text" class="form-control 
 							@error('title')is-invalid @enderror" name="codeno">
 							<span class="text-danger">
@@ -25,7 +30,7 @@
 					<div class="form-group row{{
 						$errors->has('name')?'has-error':''}}">
 						<label for="Inputname" class="col-sm-2 col-form-label">Name</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="name">
 							<span class="text-danger">
 								{{$errors->first('name')}}</span>
@@ -35,7 +40,7 @@
 					<div class="form-group row{{
 						$errors->has('photo')?'has-error':''}}">
 						<label for="Inputphoto" class="col-sm-2 col-form-label">Photo</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="file" class="form-control" name="photo">
 							<span class="text-danger">
 								{{$errors->first('photo')}}</span>
@@ -45,7 +50,7 @@
 					<div class="form-group row{{
 						$errors->has('price')?'has-error':''}}">
 						<label for="Inputprice" class="col-sm-2 col-form-label">Price</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="number" class="form-control" name="price">
 							<span class="text-danger">
 								{{$errors->first('price')}}</span>
@@ -55,7 +60,7 @@
 					<div class="form-group row{{
 						$errors->has('discount')?'has-error':''}}">
 						<label for="Inputdiscount" class="col-sm-2 col-form-label">Discount</label>
-						<div class="col-sm-10">
+						<div class="col-sm-5">
 							<input type="number" class="form-control" name="discount" value="0">
 							<span class="text-danger">
 								{{$errors->first('discount')}}
@@ -67,7 +72,7 @@
 					<div class="form-group row{{
 						$errors->has('description')?'has-error':''}}">
 						<label for="Inputdescription" class="col-sm-2 col-form-label">Description</label>
-						<textarea class=" form-control col-sm-10" name="description" id="Inputdescription"></textarea>
+						<textarea class=" form-control col-sm-5" name="description" id="Inputdescription"></textarea>
 						<span class="text-danger">
 								{{$errors->first('description')}}</span>	
 					</div>

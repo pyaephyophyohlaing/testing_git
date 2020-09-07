@@ -67,35 +67,7 @@
 
 			<a href="#"> Login | Signup</a>
 
-			 {{--  @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
- --}}
+			 
 			<hr>
 
 			<a href="#"> Cart [ <span class="cartNoti"> 1 </span> ]  </a>
@@ -220,14 +192,17 @@
 			<div class="col-12">
 				<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
 		            <div class="MultiCarousel-inner">
-		            	@foreach($items as $item)
+
+		      	@foreach($items as $item)
 		                <div class="item">
+		                	<a href="{{route('itemdetailpage',$item->id)}}">
 		                    <div class="pad15">
 		                    	<img src="{{asset($item->photo)}}" class="img-fluid">
 		                        <p class="text-truncate">{{$item->name}}</p>
 		                        <p class="item-price">
 		                        	<strike>250000Ks </strike> 
 		                        	<span class="d-block">{{$item->price}} Ks</span>
+		                        	<span class="d-block">{{$item->discount}} Ks</span>
 		                        </p>
 
 		                        <div class="star-rating">
@@ -246,6 +221,7 @@
 								 data-price="{{$item->price}}">Add to Cart</a>
 
 		                    </div>
+		                </a>
 		                </div>
 		                @endforeach    		                
 		            </div>
@@ -844,60 +820,14 @@
 
 	    <!-- Brand Store Item -->
 	    <section class="customer-logos slider mt-5">
+	    	@foreach($brands as $brand)
 	      	<div class="slide">
-	      		<a href="">
-		      		<img src="{{asset('front/image/brand/loacker_logo.jpg')}}">
+	      		<a href="{{route('brandpage',$brand->id)}}">
+	      			<img src="{{asset($brand->photo)}}" class="img-fluid">
+		      		
 		      	</a>
 	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/lockandlock_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/apple_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/giordano_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/saisai_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/brands_logo.png')}}">
-	      		</a>	
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/acer_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/bella_logo.png')}}">
-	      			>
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/ariel_logo.png')}}">
-	      		</a>
-	      	</div>
+	      @endforeach
 	   	</section>
 
 	    <div class="whitespace d-xl-block d-lg-block d-md-none d-sm-none d-none"></div>

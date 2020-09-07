@@ -5,7 +5,7 @@
 	<div class="d-sm-flex align-items-center   justify-content-between mb-4">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="h3 mb-0 text-gray-800">Brand Lists</h1>
+				<h1 class="h3 mb-0 text-gray-800">Brand Lists</h1> 
 				<a href="{{route('brands.create')}}"  class="btn btn-success">Add New</a>
 			</div>
 		</div>
@@ -32,12 +32,19 @@
 							<td>
 								<img src="{{asset($brand->photo)}}" class="img-fluid w-25">
 							</td>
+
 							<td>
-								<a href="" class="btn btn-primary">Detail</a><br>
-								<a href="{{route('brands.edit',$brand->id)}}" class="btn btn-info">Edit</a><br>
-								<a href="" class="btn btn-danger" 
-								>Delete</a>
-							</td>
+							 <a href="{{route('brands.show',$brand->id)}}" class="btn btn-primary">Detail</a>
+
+                             <a href="{{route('brands.edit',$brand->id)}}" class="btn btn-info">Edit</a>
+                             
+                            <form action="{{route('brands.destroy',$brand->id)}}" method="post" onsubmit="return confirm('Are you Sure want to Delete!')" class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-success">Delete</button>
+                                          </form>
+                            </td>
+
 						</tr>
 						@endforeach
 					</tbody>

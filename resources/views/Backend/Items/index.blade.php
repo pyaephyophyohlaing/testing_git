@@ -37,11 +37,16 @@
 
 							<td>{{$item->price}}MMk</td>
 							<td>
-								<a href="" class="btn btn-primary">Detail</a><br>
-								<a href="{{route('items.edit',$item->id)}}" class="btn btn-info">Edit</a><br>
-								<a href="" class="btn btn-danger" 
-								>Delete</a>
-							</td>
+         							<a href="{{route('items.show',$item->id)}}" class="btn btn-primary">Detail</a><br><br>
+         							
+         							<a href="{{route('items.edit',$item->id)}}" class="btn btn-info">Edit</a>
+         							<br><br>
+         							<form action="{{route('items.destroy',$item->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')" class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>                    
+                                    </form>
+         						</td>
 						</tr>
 						@endforeach
 					</tbody>

@@ -5,6 +5,11 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Order Detail Information</h1>
+             <div class="text-right">
+              <a href="{{route('order')}}"  class="btn btn-success">
+                Go Back
+              </a>
+            </div>
           </div>
 
           <!-- Content Row -->

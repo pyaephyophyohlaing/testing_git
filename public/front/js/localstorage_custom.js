@@ -53,6 +53,7 @@ $(document).ready(function(){
         var j=1;
         var total=0;
         var tfoot = '';
+        var role;
         $.each(itemArr,function(i,v){
           var id=v.id;
           var name = v.name;
@@ -61,7 +62,7 @@ $(document).ready(function(){
           var qty = v.qty;
           var subtotal = qty*price;
           total+=parseInt(subtotal);
-
+          role=v.role;
           html += `<tr>
           <td>
           <button class="btn btn-outline-danger remove btn-sm" data-id="${i}" style="border-radius: 50%"> 
@@ -103,24 +104,12 @@ $(document).ready(function(){
          // html+=`<tr><td>${j++}</td><td>${name}</td><td><img src="${image}" width="300px" height="200px"></td><td><i class="fas fa-plus-circle qtyplus" data-id=${id}></i>${qty}<i class="fas fa-minus-circle qtyminus" data-id=${id} data-i=${i}></i></td><td>${price}</td><td>${subtotal}</td><td><button class="danger" data-id=${i}>Delete</button></td></tr>`;
        });
         
-        tfoot+=`<tr>
-        <td colspan="8">
-        <h3 class="text-right"> Total : ${total} Ks </h3>
-        </td>
-        </tr>
-        <tr> 
-        <td colspan="5"> 
-        <textarea class="form-control" id="notes" placeholder="Any Request..."></textarea>
-        </td>
-        <td colspan="3">
-        <button class="btn btn-secondary btn-block mainfullbtncolor checkoutbtn"> 
-        Check Out 
-        </button>
-        </td>
-        </tr>`;
-
+       
+        $('.sub').text(total);
         $('#shoppingcart_table').html(html);
-        $('#shoppingcart_tfoot').html(tfoot);
+       
+        var tprice = total;
+        $('.tprice').html(tprice.toLocaleString()+' Ks');
       }else{
         var noshopping = `<div class="col-12">
         <h5 class="text-center"> There are no items in this cart </h5>
@@ -270,7 +259,7 @@ $(document).ready(function(){
           }
         });
 
-  $('#shoppingcart_tfoot').on('click','.checkoutbtn',function(){
+  $('.checkoutbtn').on('click',function(){
     //alert('hello');
     var notes = $('#notes').val();
     var itemString = localStorage.getItem('mycart');

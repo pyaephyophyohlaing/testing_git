@@ -31,21 +31,28 @@
 							<td>{{$category->name}}</td>
 							<td>
 								<img src="{{asset($category->photo)}}" class="img-fluid w-25"></td>
-							<td>
-								<a href="" class="btn btn-primary">Detail</a><br>
-								<a href="{{route('categories.edit',$category->id)}}" class="btn btn-info">Edit</a><br>
-								<a href="" class="btn btn-danger" 
-								>Delete</a>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
+								<td>
+									<a href="{{route('categories.show',$category->id)}}" class="btn btn-primary">Detail</a><br><br>
+									
+									<a href="{{route('categories.edit',$category->id)}}" class="btn btn-success">Edit</a><br><br>
 
+									<form action="{{route('categories.destroy',$category->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')">
+
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="btn btn-danger">Delete</button>
+									</form>
+
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-@endsection	
-		
+	@endsection	
+	
